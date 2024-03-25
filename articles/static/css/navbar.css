@@ -4,8 +4,17 @@
     transition: all 0.2s;
     position: relative;
     color: black;
-    font-weight: 600;
-    
+    font-weight: 400;
+}
+
+.nav-link:not(.navbar-brand) {
+    transition: all 0.2s;
+    position: relative;
+    color: black;
+    font-weight: 500;
+    padding: 15px 0px 5px 0px;
+    margin: 0 15px;
+    font-size: 15px;
 }
 
 .nav-link::after{
@@ -14,17 +23,42 @@
     transition: all 0.2;
     height: 2px;
     width: 100%;
-    background-color: azure;
+    background-color: rgb(215,172,4);
     position: absolute;
     bottom: 0;
     left: 0;
+}
+
+.nav-link:hover{
+    color: rgb(215,172,4);
 }
 
 .nav-link:hover::after{
    opacity: 1;
 }
 
+
+.navbar::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 100%;
+    border-bottom: 1px solid rgb(0, 0, 0);
+}
+
+/* navbar logo KAIzen project */
 .navbar-brand {
-    color: black;
     font-weight: 600;
+    color: yellow; /* Fallback color for non-webkit browsers */
+    background: -webkit-linear-gradient(yellow, black);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.navbar-brand:hover{
+    color: rgb(215,172,4);
+}
+.navbar-brand::after{
+    color: rgb(215,172,4);
 }
