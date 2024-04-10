@@ -5,42 +5,56 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.shortcuts import render, redirect
-
-
-# Create your views here.
+from django.contrib.auth import authenticate, login as auth_login
 
 def all_articles(request):
     article_list = Article.objects.all().order_by('title')
     return render(request, 'article_list.html', {'article_list': article_list})
 
-
 def home(request):
     return render(request, 'home.html', {})
 
-def user_registration(request):
-    form = UserCreationForm()
+def about(request):
+    return render(request, 'about.html', {})
 
+def sign_up(request):
+    return render(request, 'register.html', {})
+
+def login(request):
+    return render(request, 'login.html', {})
+
+def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            user = form.cleaned_data.get('email')
-            messages.success(request, 'Account Created Successfully')
-            
-    context = {'form':form}
-    return render(request, 'register.html', context)
+        firstname = request.POST['first_name']
+        lastname = request.POST['last_name']
+        password = request.POST['password']
+        email = request.POST['email']
+        user = KaizenUser.objects.create_user(first_name=firstname, last_name=lastname,
+                                              email=email, password=password)
+        user.save()
+        print(user.email, user.password)
+        return redirect('login')
+    else:
+        return render(request, 'register.html')
+
 
 def user_login(request):
-    
     if request.method == 'POST':
-        form = AuthenticationForm(data=request.POST)
+        form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
-           user = form.get_user()
-           login(request, user)
-        if 'next' in request.POST:
-            return redirect(request.POST.get('next'))
+            user = form.get_user()
+            auth_login(request, user)
+            if 'next' in request.POST:
+                return redirect(request.POST.get('next'))
+            else:
+                return redirect('home')
         else:
-            return redirect('home')
+            return render(request, 'register.html', {'form': form})
     else:
         form = AuthenticationForm()
-        return render(request, 'login.html')
+        return render(request, 'login.html', {'form': form})
+    
+def user_logout(request):
+    logout(request)
+    messages.success(request, ("Logout Successfully"))
+    return redirect('login')

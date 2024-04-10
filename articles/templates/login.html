@@ -11,27 +11,30 @@
         <title>Login</title>
         <link rel="stylesheet" href="/static/css/login.css">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        
     </head>
-    {% csrf_token %}
     <body> 
         <div class="wrapper">
-            <form action='#'>
-                <h1>Login</h1>
-                <div class="input-box">
-                    <input type="text" placeholder="Email" required>
+            <form method = "POST" action= "{% url 'log' %}">
+                {% csrf_token %}
+                <h3 id = "form-title">Create an Account</h3>
+                <h2 id = "login">Login</h2> 
+                <div id="rectangle"></div>
+                <div id = "email" class="input-box">
+                    <input type="text" placeholder="Email" name="username" required>
                     <i class='bx bx-envelope'></i>
                 </div>
 
-                <div class="input-box">
-                    <input type="password" placeholder="password" required>
+                <div id = "password" class="input-box">
+                    <input type="password" placeholder="password" name="password" required>
                     <i class='bx bxs-lock-alt' ></i>
                 </div>
 
-                <button type="submit" class="btn">Login</button>
+                <button type="submit" name = "login-sub" class="btn"><p id= "login-button"> Login</p> </button>
                 
                 <div class="Signup-link">
-                    <p>Don't Have an account?
-                    <a href="{% url 'register' %}">
+                    <p id = "sign-up">| Don't Have an account?
+                    <a href="{% url 'sign-up' %}">
                         <strong><bold>SignUp</bold></bold></strong></a>
                     </p>
                 </div>

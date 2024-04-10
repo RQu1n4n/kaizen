@@ -1,90 +1,133 @@
 @import url('https://fonts.googleapis.com/css2?family=Trirong:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "inter";
-}
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(#E1AD01, #7B5F01);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ffffff;
 }
 
-.wrapper {
-    width: 420px;
-    background: linear-gradient(#181E1F, #418591, #6A9EA7);
-    color: azure;
-    border-radius: 15px;
-  padding: 30px 40px
-}
-
-h1 {
-    font-size: 40px;
-    text-align: center;
-}
-
-.wrapper .input-box {
+form {
+  height:475px;
+  width: 950px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid #000000;
+  border-radius: 3%;
   position: relative;
-  width: 100%;
-  height: 50px;
-  margin: 30px 0;
+  overflow: hidden;
+  transform: translate(0px, 25px);
 }
 
-.input-box input {
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  border: none;
-  outline: none;
-  border: 3px solid rgba(255, 255, 255, .2);
-  border-radius: 15px;
-  color: azure;
-  padding: 20px 45px 20px 20px;
-  
-}
-
-.input-box input::placeholder{
-  color: azure;
-}
-
+/* Style the icons */
 .input-box i {
   position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 25px;
+  margin-left: -30px;
+  padding-top: 15px;
+  font-size: 2em;
+  padding-right: 20px;
+  transform: translateX(70%);
 }
 
-.btn {
-  width: 100%;
-  height: 45px;
-  background: linear-gradient(#3F3F3F, #090909);
-  border: none;
-  outline: none;
-  border-radius: 35px;
-  cursor:pointer;
-  font-size: 15px;
-  color: azure;
-  font-weight: 700;
-  
+#form-title { 
+  display: inline-block;
+  text-align: left;
+  font-size: 2em;
+  transform: translate(70px, 120px);
+  z-index: 2;
+  position: relative;
 }
 
-.Signin-link {
-    font-size: 15px;
-    text-align: center;
-    margin: 20px 0 15px;
+#rectangle { 
+  background-color: #4b4c7c; /* Adjust as needed */ 
+  z-index: 1;
+  height:485px;
+  width: 410px;
+  position: absolute;
+  opacity: 0.8;
+  transform: translate(0px, -50px);
 }
 
-.register-link p a {
-    color: azure;
-    text-decoration: none;
-    font-weight: 500;
+#register { 
+  display: inline-block;
+  text-align: left;
+  font-size: 2em;
+  transform: translate(350px, 30px);
+  z-index: 2;
+  position: relative;
 }
 
-.register-link p a:hover {
-    text-decoration: underline;
+#first-name {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  transform: translate(95%, 45%);
+  padding:0.5em;
+  position: relative;
+}
+
+#first-name input{ 
+  padding: 1em;
+  padding-left: 3em;
+}
+
+
+#last-name {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  transform: translate(95%, 50%);
+  padding:0.5em;
+  position: relative;
+}
+
+#last-name input{ 
+  padding: 1em;
+  padding-left: 3em;
+}
+
+#email {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  transform: translate(95%, 55%);
+  padding:0.5em;
+  position: relative;
+}
+
+#email input { 
+  padding: 1em;
+  padding-left: 3em;
+}
+
+#password {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  transform: translate(95%, 60%);
+  padding:0.5em;
+  position: relative;
+}
+
+#password input{ 
+  padding: 1em;
+  padding-left: 3em;
+}
+
+#register-button { 
+  flex-direction: column;
+  transform: translate(520%, 80%);
+  position: relative;
+  font-weight: bold;
+}
+
+#register-button:hover { 
+  color: rgb(182, 27, 27);
+}
+
+#account { 
+  flex-direction: column;
+  transform: translate(58%, -15%);
+  position: relative;
+  font-weight: bold;
 }
